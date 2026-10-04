@@ -83,7 +83,7 @@ function createServer() {
     const name = req.body?.name?.trim();
 
     if (!name) {
-      res.status(404).send('Bad request');
+      res.status(400).send('Bad request');
 
       return;
     }
