@@ -75,15 +75,14 @@ function createServer() {
     const user = users.find((u) => u.id === req.id);
 
     if (!user) {
-      res.status(400).send('Not found');
+      res.status(404).send('Not found');
 
       return;
     }
 
     const name = req.body?.name?.trim();
-    const invalidName = name === user.name || !name;
 
-    if (invalidName) {
+    if (!name) {
       res.status(404).send('Bad request');
 
       return;
